@@ -30,7 +30,7 @@ export default function Home() {
       const balanceInWei = await provider.getBalance(address);
 
       const balanceInEth = ethers.formatEther(balanceInWei);
-      console.log("balance", balanceInWei, balanceInEth);
+
       setBalance(balanceInEth);
     } catch (error) {
       console.error("Error getting balance", error);
