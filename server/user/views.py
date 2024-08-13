@@ -58,6 +58,10 @@ def loginView(request):
 def registerView(request):
     serializer = serializers.RegistrationSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
+    if not serializer.is_valid():
+       # Print or log the errors
+       print("RegistrationSerializer errors:", serializer.errors)
+       return response.Response(serializer.errors, status=400)
 
     user = serializer.save()
 
