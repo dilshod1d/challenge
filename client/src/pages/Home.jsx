@@ -14,13 +14,12 @@ export default function Home() {
       await getUser();
 
       if (user?.wallet_address) {
-        console.log("wallet address", user.wallet_address);
         await fetchWalletBalance(user.wallet_address);
       }
     }
 
     fetchUserData();
-  }, []);
+  }, [user]);
 
   async function fetchWalletBalance(address) {
     try {
